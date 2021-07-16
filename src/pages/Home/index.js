@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import * as S from "./styled";
+import { useHistory } from "react-router-dom";
 
 function App(props) {
+  const history = useHistory();
   const [usuario, setUsuario] = useState("");
 
   function handlePesquisa() {
@@ -18,6 +20,7 @@ function App(props) {
           "repositoriesName",
           JSON.stringify(repositoriesName)
         );
+        history.push("/repositories");
       });
   }
 
